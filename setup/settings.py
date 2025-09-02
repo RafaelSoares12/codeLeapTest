@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "drf_spectacular",
     "rest_framework",
     "corsheaders",
     "api",
@@ -73,7 +74,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = "pt-br"
+LANGUAGE_CODE = "en-US"
 
 TIME_ZONE = "America/Araguaina"
 
@@ -85,6 +86,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {"DEFAULT_PAGINATION_CLASS": None}
+REST_FRAMEWORK = {"DEFAULT_PAGINATION_CLASS": None, "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",}
 CORS_ALLOW_ALL_ORIGINS = True
 APPEND_SLASH = True
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "CodeLeap API Test",
+    "DESCRIPTION": "Posts API",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}
