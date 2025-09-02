@@ -5,10 +5,10 @@ from api.serializers import PostSerializer
 
 class PostViewSet(mixins.CreateModelMixin,
                   mixins.ListModelMixin,
-                  mixins.PartialUpdateModelMixin,
+                  mixins.UpdateModelMixin,
                   mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [AllowAny]
-    http_method_names = ["get","post","patch","delete"]
+    http_method_names = ["get", "post", "patch", "delete"]
